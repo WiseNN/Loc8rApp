@@ -1,3 +1,9 @@
+/**
+	The purpose of the router is to route the controllers in the controllers folder to 
+	a URL path that is literally built here inside of this file. 
+**/
+
+
 var express = require('express');
 var router = express.Router();
 /**
@@ -6,13 +12,17 @@ var router = express.Router();
 	This is then 'require' d or imported into the current file inside of 
 	the variable named: ctrlMain. 
  **/
-var ctrlMain = require('../controllers/main');
+var ctrlLocations = require('../controllers/locations');
+var ctrlOthers = require('../controllers/others');
 
-/* GET home page. */
+/* Location Pages */
+router.get('/', ctrlLocations.homeList);
+router.get('/location', ctrlLocations.locationInfo);
+router.get('/location/review/new', ctrlLocations.addReview);
 
 
 
 
-  router.get('/', ctrlMain.index);
+  router.get('/about', ctrlOthers.about);
 
 module.exports = router;
