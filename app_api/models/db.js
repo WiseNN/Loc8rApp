@@ -7,11 +7,13 @@ var dbURI = 'mongodb://localhost/Loc8r';
 	if(process.env.NODE_ENV === 'production')
 	{
 		dbURI=process.env.MLAB_URI;
+		console.log("Debug...INSIDE OF PRODUCTION LOOP")
+		console.log("Show the URI:"+dbURI);
 	}
 		mongoose.connect(dbURI);
 	
 
-	
+	console.log("Current Variable Status: "+process.env.NODE_ENV);
 
 	mongoose.connection.on('connected', function(){
 
